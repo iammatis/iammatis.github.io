@@ -1,0 +1,123 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="manifest" href="images/site.webmanifest"> -->
+  <link type="image/x-icon" rel="icon">
+  <link rel="stylesheet" href="styles.css">
+  <title>vilk.sk</title>
+</head>
+<body>
+  <div class="content">
+    <h1>vilk.sk</h1>
+    <p>software engineer<span class="blinking-cursor">_</span></p>
+    <ul>
+      <li><a href="https://github.com/iammatis"><img src = "images/github.svg" alt="Github"/></a></li>
+      <li><a href="https://www.linkedin.com/in/matej-vilk"><img src = "images/linkedin.svg" alt="Linkedin"/></a></li>
+    </ul>
+  </div>
+  
+  <script>
+    // const link = document.createElement('link');
+    // link.type = 'image/x-icon';
+    // link.rel = 'shortcut icon';
+    // link.href = canvas.toDataURL("image/x-icon");
+
+    // document.getElementsByTagName('head')[0].appendChild(link);
+
+    const favicon = document.querySelector("link[rel~='icon']");
+    const alphabet = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*';
+    const program = '+>++[-<<[->+>+<<]>>>+]';
+    let index = 0;
+    let cut = 16;
+
+    // function setFavicon() {
+    //   const canvas = document.createElement('canvas');
+    //   canvas.width = 16;
+    //   canvas.height = 16;
+
+    //   // const char = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+    //   const char = program.charAt(index);
+      
+    //   const context = canvas.getContext('2d');
+    //   // context.fillStyle = "#000";
+    //   // context.fillRect(0, 0, 16, 16);
+    //   context.font = "12px monospace";
+    //   context.fillStyle = "#4AF626";
+    //   context.fillText(char, 4, 13);
+
+    //   favicon.href = canvas.toDataURL('image/x-icon');
+    //   index++;
+    //   index = index === program.length ? 0 : index;
+    // }
+
+    // setInterval("setFavicon()", 50);
+
+    // function setFavicon() {
+    //   const canvas = document.createElement('canvas');
+    //   canvas.width = 160;
+    //   canvas.height = 16;
+
+    //   // const char = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+    //   const char = program.charAt(index);
+      
+    //   const context = canvas.getContext('2d');
+    //   context.fillStyle = "#000";
+    //   context.fillRect(0, 0, 160, 16);
+    //   context.font = "12px monospace";
+    //   context.fillStyle = "#4AF626";
+    //   context.fillText(program, 0, 12);
+
+    //   const tempCanvas =  document.createElement("canvas");
+    //   const tempContext = tempCanvas.getContext("2d");
+
+    //   tempCanvas.width = 160;
+    //   tempCanvas.height = 16;
+
+    //   tempContext.drawImage(canvas, cut, 0, 16, 16, 0, 0, 16, 16);
+
+    //   const img = tempCanvas.toDataURL("image/png");
+    //   favicon.href = tempCanvas.toDataURL('image/x-icon');
+    //   console.log({image: tempCanvas.toDataURL('image/x-icon')})
+    //   // document.write('<a href="'+img+'"><img src="'+img+'"/></a>');
+    //   cut++;
+    //   cut = cut >= 160 ? 16 : cut;
+    // }
+
+    function setFavicon() {
+      const canvas = document.createElement('canvas');
+      canvas.width = 200;
+      canvas.height = 16;
+
+      const context = canvas.getContext('2d');
+      context.fillStyle = "#000";
+      context.fillRect(0, 0, 200, 16);
+      context.font = "12px monospace";
+      context.fillStyle = "#4AF626";
+      context.fillText(program, 20, 12);
+
+      const tempCanvas =  document.createElement("canvas");
+      const tempContext = tempCanvas.getContext("2d");
+
+      tempCanvas.width = 160;
+      tempCanvas.height = 16;
+
+      tempContext.drawImage(canvas, cut, 0, 16, 16, 0, 0, 16, 16);
+
+      // const faviconImg = document.getElementById("favicon");
+      favicon.href = tempCanvas.toDataURL('image/x-icon');
+      
+      cut++;
+      cut = cut >= 180 ? 10 : cut;
+    }
+
+    setInterval("setFavicon()", 1000);
+
+  </script>
+
+</body>
+</html>
